@@ -1,0 +1,12 @@
+name = "aula-abierta-bariloche"
+compatibility_date = "2024-01-01"
+pages_build_output_dir = "./dist"
+
+# Configuración opcional para Cloudflare D1 en producción:
+# Para crear la base en Cloudflare ejecuta:
+# npx wrangler d1 create aula-abierta-db
+#
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "aula-abierta-db"
+# database_id = "<tu-database-id-de-cloudflare>"
