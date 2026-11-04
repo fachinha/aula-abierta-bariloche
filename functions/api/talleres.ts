@@ -17,7 +17,8 @@ export const onRequestGet = async (context: { env: Env }) => {
     }
   }
 
-  return new Response(JSON.stringify({ status: 'ok', source: 'edge-runtime' }), {
+  return new Response(JSON.stringify({ error: 'DB_NOT_CONFIGURED', message: 'Fallback to client seed' }), {
+    status: 404,
     headers: { 'Content-Type': 'application/json' }
   });
 };

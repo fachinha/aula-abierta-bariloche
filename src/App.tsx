@@ -41,9 +41,9 @@ export const App: React.FC = () => {
         apiService.getCapacitaciones(),
         apiService.getTalleres()
       ]);
-      setCursos(curList);
-      setCapacitaciones(capList);
-      setTalleres(talList);
+      setCursos(Array.isArray(curList) && curList.length > 0 ? curList : []);
+      setCapacitaciones(Array.isArray(capList) ? capList : []);
+      setTalleres(Array.isArray(talList) && talList.length > 0 ? talList : []);
     } catch (e) {
       console.error('Error loading data:', e);
     } finally {

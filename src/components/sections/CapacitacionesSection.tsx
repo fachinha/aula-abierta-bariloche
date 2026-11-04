@@ -16,7 +16,7 @@ export const CapacitacionesSection: React.FC<CapacitacionesSectionProps> = ({
 }) => {
   const [selectedSector, setSelectedSector] = useState<string>('all');
 
-  const filtered = capacitaciones.filter(c => {
+  const filtered = (capacitaciones || []).filter(c => {
     if (searchQuery) {
       const q = searchQuery.toLowerCase();
       const match =

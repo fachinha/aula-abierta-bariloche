@@ -14,7 +14,12 @@ export const apiService = {
   getCursos: async (): Promise<Curso[]> => {
     try {
       const res = await fetch('/api/cursos');
-      if (res.ok) return await res.json();
+      if (res.ok) {
+        const data = await res.json();
+        if (Array.isArray(data) && data.length > 0) {
+          return data;
+        }
+      }
     } catch {
       // Fallback a almacenamiento local
     }
@@ -47,7 +52,12 @@ export const apiService = {
   getTalleres: async (): Promise<Taller[]> => {
     try {
       const res = await fetch('/api/talleres');
-      if (res.ok) return await res.json();
+      if (res.ok) {
+        const data = await res.json();
+        if (Array.isArray(data) && data.length > 0) {
+          return data;
+        }
+      }
     } catch {
       // Fallback a almacenamiento local
     }
@@ -80,7 +90,10 @@ export const apiService = {
   getInscripciones: async (): Promise<Inscripcion[]> => {
     try {
       const res = await fetch('/api/inscripciones');
-      if (res.ok) return await res.json();
+      if (res.ok) {
+        const data = await res.json();
+        if (Array.isArray(data)) return data;
+      }
     } catch {
       // Fallback
     }
@@ -115,7 +128,10 @@ export const apiService = {
   getPropuestas: async (): Promise<PropuestaComunitaria[]> => {
     try {
       const res = await fetch('/api/propuestas');
-      if (res.ok) return await res.json();
+      if (res.ok) {
+        const data = await res.json();
+        if (Array.isArray(data)) return data;
+      }
     } catch {
       // Fallback
     }

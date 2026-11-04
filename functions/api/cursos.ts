@@ -18,8 +18,9 @@ export const onRequestGet = async (context: { env: Env }) => {
     }
   }
 
-  // Si no está vinculado D1 aún, responder con mensaje informativo
-  return new Response(JSON.stringify({ status: 'ok', source: 'edge-runtime' }), {
+  // Si no está vinculado D1 aún en Cloudflare, responder con 404 para que el cliente use el seed
+  return new Response(JSON.stringify({ error: 'DB_NOT_CONFIGURED', message: 'Fallback to client seed' }), {
+    status: 404,
     headers: { 'Content-Type': 'application/json' }
   });
 };

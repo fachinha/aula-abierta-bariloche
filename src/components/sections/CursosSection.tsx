@@ -20,7 +20,7 @@ export const CursosSection: React.FC<CursosSectionProps> = ({
   const [selectedArea, setSelectedArea] = useState<string>('all');
 
   // Filtro de niveles y subniveles
-  const filteredCursos = cursos.filter(c => {
+  const filteredCursos = (cursos || []).filter(c => {
     // Búsqueda por texto
     if (searchQuery) {
       const q = searchQuery.toLowerCase();

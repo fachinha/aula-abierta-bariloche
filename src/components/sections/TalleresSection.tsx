@@ -20,7 +20,7 @@ export const TalleresSection: React.FC<TalleresSectionProps> = ({
 }) => {
   const [filterType, setFilterType] = useState<'all' | 'convocatoria' | 'taller'>('all');
 
-  const filtered = talleres.filter(t => {
+  const filtered = (talleres || []).filter(t => {
     if (searchQuery) {
       const q = searchQuery.toLowerCase();
       const match =
